@@ -8,8 +8,8 @@ CREATE TABLE products(
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   product_name VARCHAR(100) NOT NULL,
   department VARCHAR(45) NOT NULL,
-  price DECIMAL(10,2) NULL,
-  stock_quantity INT NULL
+  price DECIMAL(10,2) NOT NULL,
+  stock_quantity INT
 );
 
 INSERT INTO products (product_name, department, price, stock_quantity)

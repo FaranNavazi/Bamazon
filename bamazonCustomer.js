@@ -58,7 +58,6 @@ function start() {
     .then(function(answer) {
       var query = "SELECT stock_quantity FROM products WHERE ?";
       connection.query(query, { id: answer.itemId }, function(err, res) {
-        console.log(res);
         var unitIn = res[0].stock_quantity;
         var unitBuy = parseInt(answer.quantity);
         if (unitIn >= unitBuy) {
@@ -78,7 +77,7 @@ function start() {
             function(error) {
               if (error) throw err;
               console.log("Your order has been placed successfully!");
-              start();
+              connection.end();
             }
           );
         } else {
