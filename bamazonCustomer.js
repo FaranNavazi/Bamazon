@@ -56,12 +56,14 @@ function start() {
       }
     ])
     .then(function(answer) {
-      var query = "SELECT stock_quantity FROM products WHERE ?";
+      var query = "SELECT stock_quantity, price FROM products WHERE ?";
       connection.query(query, { id: answer.itemId }, function(err, res) {
+        var total = res[0].price * parseInt(answer.quantity);
         var unitIn = res[0].stock_quantity;
         var unitBuy = parseInt(answer.quantity);
         if (unitIn >= unitBuy) {
           console.log("Thanks for shopping with us!");
+          console.log("Your order total is: "+ total)
           var newStock = unitIn - unitBuy;
 
           connection.query(
