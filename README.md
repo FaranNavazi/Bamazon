@@ -19,6 +19,9 @@ what to do before:
 
 
 (1st Photo)
+
 ![p3 show all](./p3.png)
+
 (2nd Photo)
+
 ![p2 show all](./p2.png)
